@@ -1,0 +1,44 @@
+.tweet{
+    display: flex;
+    flex-direction: column;
+    margin:10px;
+    border:2px solid black;
+    border-radius: 10px;
+    padding:10px 5px;
+    background-color: lightblue;
+    width: 70vw;
+}
+.tweet-head{
+    display: flex;
+    font-size: 1.2rem;
+}
+.tweet-head>p:first-child{
+    margin:0px 10px 0px 5px;
+    font-weight: bolder;
+}
+.tweet-head>p:nth-child(2){
+    color:darkblue;
+    font-weight: 600;
+    text-decoration: none;
+}
+.tweet-head>p:nth-child(4){
+    font-weight:600;
+}
+.tweet-body{
+    margin:5px;
+}
+.tweet-body>pre{
+    font-size: 1.2rem;
+    width: 100%;
+    white-space: pre-wrap;
+}
+.like-unlike-box{
+    margin:5px;
+}
+.like-unlike-box>i{
+    margin: 0px 10px;
+    cursor: pointer;
+}
+.like-unlike-box>p{
+    display: inline-block;
+}

@@ -1,0 +1,42 @@
+1) /auth/signup : post
+    body : {
+        name,
+        username,
+        dob,
+        city,
+        state,
+        password
+    }
+
+2) /auth/signin : post
+    body:{
+        username,
+        password
+    }
+
+3) /user/getuser/ : get     -> users details
+4) /user/getuser/:username : get     -> users details
+
+5) /user/searchuser/:username : get  -> array of users with matched username
+
+6) /user/follow/:username : patch
+    authToken required
+
+7) /user/unfollow/:username : patch
+    authToken required
+
+8) /post/tweet : post
+    authToken required
+    body:{
+        tweet
+    }
+
+9) /post/like/:postId : patch
+    authToken required
+
+10) /post/unlike/:postId : patch
+    authToken required
+
+11)/post/getpost/:username : get [get user(username) all post]
+
+12)/post/getallpost : get [get all post]

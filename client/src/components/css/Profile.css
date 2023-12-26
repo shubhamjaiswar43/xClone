@@ -1,0 +1,74 @@
+.prof-page{
+    overflow: auto;
+    height: 85vh;
+}
+.user-info{
+    margin:10px;
+}
+
+.d-flex{
+    display: flex;
+}
+.jc-center{
+    justify-content: center;
+}
+.ai-center{
+    align-items:center;
+}
+.fd-col{
+    flex-direction: column;
+}
+.back-btn{
+    cursor: pointer;
+    margin:0 20px 0 0;
+    font-size: 1.4rem;
+}
+.profile-img{
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin:20px 40px;
+}
+
+.text-primary{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin:4px 2px;
+}
+.mr-5{
+    margin-right:5px;
+}
+.text-link{
+    font-size: 1.3rem;
+    text-decoration: none;
+    color:gray;
+    margin: 10px 15px 0px 0px;
+}
+.text-link:hover{
+    text-decoration: underline;
+}
+.text-secondary{
+    font-size: 1.3rem;
+    color:gray;
+    margin:2px 2px;
+}
+.posts{
+    margin-top: 20px;
+    width: auto;
+    height: 50px;
+}
+.posts>h1{
+    margin:10px;
+}
+.text-center{
+    text-align: center;
+}
+
+.follow-btn{
+    background-color: lightblue;
+    padding:5px 10px;
+    position: relative;
+    top:6px;
+    border-radius: 10px;
+    cursor: pointer;
+}

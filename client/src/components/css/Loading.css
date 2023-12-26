@@ -1,0 +1,36 @@
+.loading {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 5px solid darkgray;
+    border-color: gray darkgray gray darkgray;
+    animation: rotation 1s infinite;
+    position: absolute;
+    top: 48vh;
+    bottom: 48vh;
+    left: 48vw;
+    right: 48vw;
+    align-items: center;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(90deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

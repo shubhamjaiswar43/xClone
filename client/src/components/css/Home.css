@@ -1,0 +1,16 @@
+.home-head{
+    display: flex;
+    margin:0px 0px 20px 0px;
+}
+.home-head-btn{
+    width: 35vw;
+    height: 50px;
+    margin:10px;
+    font-size: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.home-head-btn-alternate{
+    background: #000;
+    color: white;
+}

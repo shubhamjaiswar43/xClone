@@ -1,0 +1,84 @@
+.main-window {
+    margin: 25px 0px 0px 50px;
+    flex-grow: 1;
+}
+
+
+@media only screen and (max-width:1200px) {
+    .home-head-btn {
+        width: 47%;
+    }
+
+    .main-window {
+        width: auto;
+        margin-left: 20px;
+    }
+
+    .tweet {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width:1000px) {
+    #root {
+        flex-direction: column-reverse;
+    }
+
+    .main-window {
+        margin-top: 10px;
+        min-height: 100vh;
+    }
+
+    .navbar {
+        margin: auto;
+    }
+
+    .nav-elements {
+        display: flex;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .not-implemented {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:640px) {
+    .main-window {
+        margin: 10px;
+    }
+    .home-head-btn{
+        width:52%;
+        font-size: 1.4rem;
+    }
+    .tweet {
+        margin: 10px 0;
+    }
+
+    .tweet-head {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .tweet-head>p:nth-child(n),
+    .tweet-head>a {
+        margin: 2px 0px;
+    }
+
+    .tweet-head>p:nth-child(3) {
+        display: none;
+    }
+
+    .home-tweet {
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width:350px){
+    .user-info{
+        font-size: 1rem;
+    }
+}

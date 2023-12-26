@@ -1,0 +1,33 @@
+.input-post {
+    margin: 20px 0px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    width: 93%;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 75vh;
+    font-size: 2rem;
+}
+
+.newpost>div{
+    display: flex;
+    flex-direction: column;
+}
+
+.post-btn {
+    background-color: lightblue;
+    padding: 5px 12px;
+    position: relative;
+    top: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width:100px;
+    border:2px solid black;
+    transition: all .2s;
+}
+.post-btn:hover{
+    font-weight: bold;
+    transform: scale(1.1);
+
+}

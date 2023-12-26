@@ -1,0 +1,5 @@
+.home-tweet{
+    padding:10px;
+    overflow: auto;
+    max-height: 75vh;
+}
