@@ -1,18 +1,14 @@
-import { useContext } from "react";
 import xClone from "./assets/xClone.jpg"
 import "./css/ProfileItem.css"
 import {
     Link, useNavigate
 } from "react-router-dom";
-import myContext from "../context/myContext.js";
 function ProfileItem(props) {
     const { data } = props;
-    const { setUsername } = useContext(myContext);
     const navigate = useNavigate();
     const handleUsernameClick = (e) => {
         e.preventDefault();
-        setUsername(data.username);
-        navigate("/profile");
+        navigate(`/profile/${data.username}`);
     }
     return (
         <div className="profileItem">

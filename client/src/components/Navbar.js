@@ -6,15 +6,7 @@ import myContext from "../context/myContext.js";
 const Navbar = () => {
     const location = useLocation().pathname;
     const navigate = useNavigate();
-    const { isLogin,setUsername } = useContext(myContext);
-    const handleProfileClick = (e)=>{
-        e.preventDefault();
-        setUsername("self");
-        if(location!=='/profile')
-            navigate("/profile");
-        else
-            window.location.reload(false);
-    }
+    const { isLogin } = useContext(myContext);
     const askForLogOut = (e) => {
         e.preventDefault();
         let isLogOut = window.confirm("Confirm Logout?");
@@ -33,7 +25,7 @@ const Navbar = () => {
                 <img onClick={() => { navigate("/"); }} src={xClone} alt="Logo" className="logo invert-ele" />
                 <ul className='nav-elements'>
                     <li>
-                        <Link className={`${location === "/home" ? "fw-bd" : ""}`} to="/home">
+                        <Link className={`${location === "/" ? "fw-bd" : ""}`} to="/">
                             <i className="fa-solid fa-house"></i>
                             <p>Home</p>
                         </Link>
@@ -75,7 +67,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className={`${location === "/profile" ? "fw-bd" : ""}`} onClick={handleProfileClick}>
+                        <Link to={`/profile/${localStorage.getItem('username')}`} className={`${location === `/profile/${localStorage.getItem('username')}` ? "fw-bd" : ""}`}>
                             <i className="fa-solid fa-user"></i>
                             <p>Profile</p>
                         </Link>

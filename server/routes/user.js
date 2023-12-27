@@ -5,6 +5,7 @@ const {fetchuser} = require("../middleware/fetchuser");
 
 routes.get("/getuser/:username",getuser);
 routes.get("/getuser/",fetchuser,getuser);
+routes.get("/searchuser",searchuser);
 routes.get("/searchuser/:username",searchuser);
 routes.patch("/follow/:username",fetchuser,follow);
 routes.patch("/unfollow/:username",fetchuser,unfollow);

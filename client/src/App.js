@@ -8,7 +8,6 @@ import {
 } from "react-router-dom"
 import Profile from "./components/Profile.js";
 import Explore from "./components/Explore.js";
-import Welcome from "./components/Welcome.js";
 import Login from "./components/Login.js";
 import Signup from "./components/Signup.js";
 import MyState from "./context/MyState.js";
@@ -20,9 +19,7 @@ import NewPost from "./components/NewPost.js";
 
 function App() {
   const [data, setData] = useState({ isAlert: false, timeOutId: "" });
-  const [username,setUsername] = useState("self");
   const [loading, setLoading] = useState(false);
-  const [followData,setFollowData] = useState({data:[],type:'FOLLOWINGS'});
   const alert = (type, message, color) => {
     clearTimeout(data.timeOutId);
     const timeOutId = setTimeout(() => {
@@ -43,19 +40,19 @@ function App() {
   return (
     <>
       <Router>
-        <MyState alert={alert} startLoading = {startLoading} endLoading = {endLoading} setUsername={setUsername} setFollowData={setFollowData}>
+        <MyState alert={alert} startLoading={startLoading} endLoading={endLoading}>
           {loading && <Loading />}
           {data.isAlert && <Alert data={data} />}
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<><Welcome /></>} />
-            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/explore" element={<Explore />} />
+            <Route exact path="/explore/:id" element={<Explore />} />
             <Route exact path="/post" element={<NewPost />} />
-            <Route exact path="/profile" element={<Profile username={username} />} />
+            <Route exact path="/profile/:id" element={<Profile />} />
             <Route exact path="/signin" element={<Login data="self" />} />
             <Route exact path="/signup" element={<Signup data="self" />} />
-            <Route exact path="/follow" element={<Follow data={followData} />} />
+            <Route exact path="/users/:type/:id" element={<Follow/>} />
           </Routes>
         </MyState>
       </Router>

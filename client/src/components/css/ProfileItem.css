@@ -1,11 +1,12 @@
 .profileItem{
     display: flex;
     border:2px solid black;
-    margin:20px 12px;
+    margin:20px 0px;
     padding:10px 5px;
     border-radius: 10px;
     background-color: lightblue;
     align-items: center;
+    width:90%;
 }
 .profileImg{
     margin:0px 15px;

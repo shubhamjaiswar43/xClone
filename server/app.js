@@ -19,23 +19,6 @@ app.use("/auth",require("./routes/auth"))
 app.use("/user",require("./routes/user"))
 app.use("/post",require("./routes/post"))
 
-// app.get("/signup", (req, res) => {
-//     res.render("..\\client\\src\\components\\Signup.js");
-// });
-
-// app.get("/login", (req, res) => {
-//     res.render("..\\client\\src\\components\\Login.js");
-// });
-
-// app.get("/feed/id:", (req, res) => {
-//     const id = req.params.id;
-//     res.render("..\\client\\src\\components\\Explore.js", {id : id});
-// });
-
-// app.get("/addPost", (req, res) => {
-//     res.render("..\\client\\src\\components\\Tweet.js");
-// });
-
 app.listen(port,()=>{
     console.log(`Server Is Running At http://${hostname}:${port}`);
 });

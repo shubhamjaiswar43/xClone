@@ -4,16 +4,15 @@ import { useEffect } from "react";
 const host = process.env.REACT_APP_SERVER_HOST;
 const MyState = (props) => {
     const location = useLocation().pathname;
-    const { alert, startLoading, endLoading, setUsername, setFollowData } = props;
+    const { alert, startLoading, endLoading } = props;
     const navigate = useNavigate();
 
-    const getData = async (username, setData) => {
+    const getData = async (username, setData, type) => {
         startLoading();
         try {
             let res;
             let toReqUrl = `${host}/user/getuser`;
-            if (username !== 'self')
-                toReqUrl += '/' + username;
+            toReqUrl += '/' + username;
             res = await fetch(toReqUrl, {
                 method: "GET",
                 headers: {
@@ -22,8 +21,12 @@ const MyState = (props) => {
                 }
             })
             res = await res.json();
-            if (setData)
-                setData(res.user);
+            if (setData) {
+                if (type)
+                    setData(res.user[type]);
+                else
+                    setData(res.user);
+            }
             endLoading();
             return res.user;
         } catch (err) {
@@ -39,7 +42,7 @@ const MyState = (props) => {
             let toReqUrl = `${host}/post`;
             if (username === 'all')
                 toReqUrl += '/getallpost';
-            else if (username === 'self')
+            else if (username === localStorage.getItem('username'))
                 toReqUrl += '/getpost';
             else
                 toReqUrl += `/getpost/${username}`;
@@ -53,13 +56,13 @@ const MyState = (props) => {
             })
             res = await res.json();
             res.posts.sort(
-                (a,b)=> (new Date(b.uploadDate)).getTime()-(new Date(a.uploadDate)).getTime()
+                (a, b) => (new Date(b.uploadDate)).getTime() - (new Date(a.uploadDate)).getTime()
             )
-            endLoading();
             if (setPost)
                 setPost(res.posts);
             if (setPost2)
                 setPost2(res.posts);
+            endLoading();
             return res.posts;
         } catch (err) {
             endLoading();
@@ -71,11 +74,14 @@ const MyState = (props) => {
         startLoading();
         try {
             let posts = []
-            const user = await getData('self');
+            const user = await getData(localStorage.getItem('username'));
             for (let i = 0; i < user.followings.length; i++) {
                 const temp = post.filter(ele => ele.username === user.followings[i].username)
                 posts = posts.concat(temp);
             }
+            posts.sort(
+                (a, b) => (new Date(b.uploadDate)).getTime() - (new Date(a.uploadDate)).getTime()
+            )
             if (setPost) {
                 setPost(posts);
             }
@@ -90,7 +96,11 @@ const MyState = (props) => {
     const searchUser = async (username, setData) => {
         startLoading();
         try {
-            let res = await fetch(`${host}/user/searchuser/${username}`, {
+            let res;
+            let toReqUrl = `${host}/user/searchuser`;
+            if (username)
+                toReqUrl += `/${username}`;
+            res = await fetch(toReqUrl, {
                 method: 'GET',
             })
             res = await res.json();
@@ -178,7 +188,7 @@ const MyState = (props) => {
     }
 
     return (
-        <myContext.Provider value={{ startLoading, endLoading, setFollowData, searchUser, setUsername, alert, signup, signin, isLogin, getData, getPost, getPostOfFollowing }}>
+        <myContext.Provider value={{ startLoading, endLoading, searchUser, alert, signup, signin, isLogin, getData, getPost, getPostOfFollowing }}>
             {props.children}
         </myContext.Provider>
     )

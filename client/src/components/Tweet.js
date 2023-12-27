@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import "./css/Tweet.css"
 import {
     Link, useNavigate
 } from "react-router-dom";
-import myContext from '../context/myContext.js';
 const Tweet = (props) => {
     const navigate = useNavigate();
     const [data, setData] = useState(props.data);
-    const { setUsername } = useContext(myContext);
     if (!data.likes) {
         setData({ ...data, likes: [] })
     }
@@ -17,8 +15,7 @@ const Tweet = (props) => {
 
     const handleUsernameClick = (e) => {
         e.preventDefault();
-        setUsername(data.username);
-        navigate("/profile");
+        navigate(`/profile/${data.username}`);
     }
 
     const handleLike = (e) => {

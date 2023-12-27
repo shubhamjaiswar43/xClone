@@ -16,7 +16,9 @@ const getuser = async (req, res) => {
 
 const searchuser = async (req, res) => {
     try {
-        const username = req.params.username;
+        let username = req.params.username;
+        if(!username)
+            username = ""
         const user = await User.find({ username: { $regex: username, $options: "i" } });
         return res.json({ success: true, user })
     } catch (err) {

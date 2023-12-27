@@ -24,17 +24,24 @@
         flex-direction: column-reverse;
     }
 
+
     .main-window {
         margin-top: 10px;
         min-height: 100vh;
     }
 
     .navbar {
+        position: fixed;
+        bottom: 0;
+        left:0;
+        right: 0;
+        background-color: #fff;
         margin: auto;
     }
 
     .nav-elements {
         display: flex;
+        justify-content: center;
     }
 
     .logo {
