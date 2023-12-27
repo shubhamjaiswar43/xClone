@@ -2,6 +2,7 @@ import Home from "./components/Home.js";
 import Navbar from "./components/Navbar.js";
 import "./App.css";
 import {
+  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom"
@@ -38,6 +39,7 @@ function App() {
   }
   return (
     <>
+      <Router>
         <MyState alert={alert} startLoading={startLoading} endLoading={endLoading}>
           {loading && <Loading />}
           {data.isAlert && <Alert data={data} />}
@@ -53,6 +55,7 @@ function App() {
             <Route exact path="/users/:type/:id" element={<Follow/>} />
           </Routes>
         </MyState>
+      </Router>
     </>
   );
 }
