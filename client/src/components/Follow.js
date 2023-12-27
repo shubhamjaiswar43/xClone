@@ -12,10 +12,10 @@ const Follow = (props) => {
     const { type } = parms;
     useEffect(() => {
         if (parms.id) {
-            getData(parms.id, setData,type);
+            getData(parms.id, setData, type);
         }
         //eslint-disable-next-line
-    },[])
+    }, [])
     const goToPreviousPage = () => {
         navigate(-1);
     }
