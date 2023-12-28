@@ -3,7 +3,8 @@
 ### • The application incorporates key features such as user authentication, the ability to follow/unfollow other users, posting tweets, and engaging with content through liking and unliking.
 ### • The entire user interface was designed and implemented with a responsive design using CSS, showcasing my proficiency in front-end development.
 ### • Additionally, the application enables users to explore the followers and followings of different accounts, enhancing the overall user experience.
-
+#### LINK : [X Clone](https://xclonebyme.netlify.app)
+[NOTE : THE FIRST REQUEST TO THE SERVER WILL TAKE TIME(FOR STARTING THE SERVER). (i.e THE FIRST LOADING IN THE WEBSITE WILL TAKE AT MOST 1-2Minutes And Others Will Be Normal)]
 
 ### Sign-Up Page
 ![Screenshot (773)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/67f20e2c-63a5-4883-90f5-02a73c7ea50f)
@@ -26,5 +27,4 @@
 ### Seeing Profile Of Different Users
 ![Screenshot (780)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/961afa50-a108-43f8-939f-3216bce9a7a5)
 
-#### LINK : [X Clone](https://xclonebyme.netlify.app)
-[NOTE : THE FIRST REQUEST TO THE SERVER WILL TAKE TIME(FOR STARTING THE SERVER). (i.e THE FIRST LOADING IN THE WEBSITE WILL TAKE AT MOST 1-2Minutes And Others Will Be Normal)]
+
