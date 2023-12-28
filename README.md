@@ -26,5 +26,5 @@
 ### Seeing Profile Of Different Users
 ![Screenshot (780)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/961afa50-a108-43f8-939f-3216bce9a7a5)
 
-#### LINK : [WEBSITE LINK](https://xclonebyme.netlify.app)
+#### LINK : [X Clone](https://xclonebyme.netlify.app)
 [NOTE : THE FIRST REQUEST TO THE SERVER WILL TAKE TIME(FOR STARTING THE SERVER). (i.e THE FIRST LOADING IN THE WEBSITE WILL TAKE AT MOST 1-2Minutes And Others Will Be Normal)]
