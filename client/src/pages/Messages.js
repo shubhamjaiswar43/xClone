@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import UserSection from '../components/UserSection.js';
 import { useNavigate } from 'react-router-dom';
+import myContext from '../context/myContext.js';
 import './css/Messages.css'
 const Messages = () => {
+    const { alert, startLoading, endLoading } = useContext(myContext);
     const navigate = useNavigate();
     const [data, setData] = useState([]);
     const getData = async () => {
+        startLoading();
         const hostname = process.env.REACT_APP_SERVER_HOST;
         let res = await fetch(`${hostname}/chat/getUsers`, {
             headers: {
@@ -17,8 +20,9 @@ const Messages = () => {
         if (res.success) {
             setData(res.users);
         } else {
-
+            alert('Error', res.Error, 'red');
         }
+        endLoading();
     }
     useEffect(() => {
         getData();

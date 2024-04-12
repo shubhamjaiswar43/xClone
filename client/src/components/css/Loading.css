@@ -1,3 +1,13 @@
+.loading-parent {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+
 .loading {
     height: 50px;
     width: 50px;
@@ -5,12 +15,6 @@
     border: 5px solid darkgray;
     border-color: gray darkgray gray darkgray;
     animation: rotation 1s infinite;
-    position: absolute;
-    top: 48vh;
-    bottom: 48vh;
-    left: 48vw;
-    right: 48vw;
-    align-items: center;
 }
 
 @keyframes rotation {

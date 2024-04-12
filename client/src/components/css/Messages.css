@@ -69,11 +69,3 @@
         height: 72vh;
     }
 }
-
-@media only screen and (max-width:450px) {
-
-    .chat-messages {
-        height: 75vh;
-    }
-
-}
