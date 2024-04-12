@@ -37,7 +37,16 @@ const Messages = () => {
                 <i onClick={goToPreviousPage} className="fa-solid fa-arrow-left back-btn"></i>
                 <h1>Messages</h1>
             </div>
-            <UserSection path="/messages" data={data} />
+            {
+                data.length !== 0 ?
+                    <UserSection path="/messages" data={data} /> :
+                    <div className='no-chat-div'>
+                        <div>
+                            <p>No Chat Here</p>
+                            <button onClick={()=>{navigate('/explore/')}} className='message-with-people-btn'>Start Chatting Now</button>
+                        </div>
+                    </div>
+            }
         </div>
     )
 }

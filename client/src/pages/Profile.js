@@ -5,6 +5,7 @@ import xClone from "../assets/xClone.jpg";
 import { Link } from 'react-router-dom';
 import myContext from '../context/myContext.js';
 import MyTweet from '../components/MyTweet.js';
+import messageIcon from '../assets/messageIcon.png';
 const Profile = (props) => {
     const [isFollowed, setIsFollowed] = useState(null);
     const [myPost, setMyPost] = useState([]);
@@ -105,18 +106,26 @@ const Profile = (props) => {
                             <i className="fa-regular fa-calendar-days mr-5"></i>
                             {"Joined Date : " + (new Date(data ? data.joinedDate : "")).toDateString()}
                         </p>
-                        <div className='d-flex'>
+                        <div className='d-flex flex-wrap ai-center'>
                             <Link onClick={handleFollowingClick} className='text-link'>
                                 {data ? data.followings ? data.followings.length : 0 : 0} Following
                             </Link>
                             <Link onClick={handleFollowerClick} className='text-link'>
                                 {data ? data.followers ? data.followers.length : 0 : 0} Followers
                             </Link>
-                            {isFollowed !== null && <button onClick={handleFollowClick} className='follow-btn'>
-                                {
-                                    isFollowed ? "Unfollow" : "Follow"
-                                }
-                            </button>}
+                            {
+                                isFollowed !== null &&
+                                <button onClick={handleFollowClick} className='follow-btn'>
+                                    {
+                                        isFollowed ? "Unfollow" : "Follow"
+                                    }
+                                </button>
+                            }{
+                                isFollowed !== null &&
+                                <Link to={`/messages/${data.username}`}>
+                                    <img className='messageIcon' srcSet={messageIcon} alt="Message" />
+                                </Link>
+                            }
                         </div>
                     </div>
                     <div className="posts">

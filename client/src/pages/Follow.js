@@ -28,7 +28,7 @@ const Follow = (props) => {
                     <p>{data ? data.length : 0} {type.toLowerCase()}</p>
                 </div>
             </div>
-            <UserSection data={data} />
+            <UserSection path="/profile" data={data} />
         </div>
     )
 }
