@@ -2,7 +2,7 @@ import "./css/LoginSignup.css";
 import {
     Link
 } from "react-router-dom"
-import xClone from "./assets/xClone.jpg"
+import xClone from "../assets/xClone.jpg"
 import myContext from "../context/myContext.js";
 import { useContext, useState } from "react";
 

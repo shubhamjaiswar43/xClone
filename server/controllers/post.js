@@ -20,10 +20,12 @@ const like = async (req, res) => {
         const tweet = await Tweet.findOne({ _id: postId });
         if (!tweet)
             return res.status(400).json({ success: false, Error: "Post Not Found!!!" });
-        if (tweet.likes.indexOf(username) !== -1)
-            return res.json({ success: false, Error: "User Already Likes The Post!!" })
-        tweet.likes.push(username);
-        tweet.unlikes = tweet.unlikes.filter(key => key != username)
+        if (tweet.likes.indexOf(username) !== -1) {
+            tweet.likes = tweet.likes.filter(key => key !== username);
+        } else {
+            tweet.likes.push(username);
+            tweet.unlikes = tweet.unlikes.filter(key => key !== username)
+        }
         await tweet.save();
         res.json({ success: true });
     } catch (err) {
@@ -37,10 +39,12 @@ const unlike = async (req, res) => {
         const tweet = await Tweet.findOne({ _id: postId });
         if (!tweet)
             return res.status(400).json({ success: false, Error: "Post Not Found!!!" });
-        if (tweet.unlikes.indexOf(username) !== -1)
-            return res.json({ success: false, Error: "User Already Likes The Post!!" });
-        tweet.unlikes.push(username);
-        tweet.likes = tweet.likes.filter(key => key != username)
+        if (tweet.unlikes.indexOf(username) !== -1) {
+            tweet.unlikes = tweet.unlikes.filter(key => key != username)
+        } else {
+            tweet.unlikes.push(username);
+            tweet.likes = tweet.likes.filter(key => key != username)
+        }
         await tweet.save();
         res.json({ success: true });
     } catch (err) {

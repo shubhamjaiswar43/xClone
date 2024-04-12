@@ -21,8 +21,6 @@ const Tweet = (props) => {
     const handleLike = (e) => {
         e.preventDefault();
         const username = localStorage.getItem('username');
-        if (data.likes.indexOf(username) !== -1)
-            return;
         const host = process.env.REACT_APP_SERVER_HOST;
         fetch(`${host}/post/like/${data._id}`, {
             method: 'PATCH',
@@ -33,15 +31,17 @@ const Tweet = (props) => {
         })
         let likes = data.likes;
         let unlikes = data.unlikes;
-        likes.push(username);
-        unlikes = unlikes.filter(key => key !== username);
+        if (data.likes.indexOf(username) !== -1) {
+            likes = likes.filter(key => key !== username);
+        } else {
+            likes.push(username);
+            unlikes = unlikes.filter(key => key !== username);
+        }
         setData({ ...data, likes, unlikes });
     }
     const handleUnlike = (e) => {
         e.preventDefault();
         const username = localStorage.getItem('username');
-        if (data.unlikes.indexOf(username) !== -1)
-            return;
         const host = process.env.REACT_APP_SERVER_HOST;
         fetch(`${host}/post/unlike/${data._id}`, {
             method: 'PATCH',
@@ -52,8 +52,12 @@ const Tweet = (props) => {
         })
         let likes = data.likes;
         let unlikes = data.unlikes;
-        unlikes.push(username);
-        likes = likes.filter(key => key !== username);
+        if (data.unlikes.indexOf(username) !== -1) {
+            unlikes = unlikes.filter(key => key !== username);
+        } else {
+            unlikes.push(username);
+            likes = likes.filter(key => key !== username);
+        }
         setData({ ...data, likes, unlikes });
     }
     return (

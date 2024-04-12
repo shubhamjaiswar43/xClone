@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./css/Profile.css"
 import { useNavigate, useParams } from 'react-router-dom';
-import xClone from "./assets/xClone.jpg";
+import xClone from "../assets/xClone.jpg";
 import { Link } from 'react-router-dom';
 import myContext from '../context/myContext.js';
-import MyTweet from './MyTweet.js';
+import MyTweet from '../components/MyTweet.js';
 const Profile = (props) => {
     const [isFollowed, setIsFollowed] = useState(null);
     const [myPost, setMyPost] = useState([]);
@@ -21,7 +21,7 @@ const Profile = (props) => {
                 let flag = parms.id === localStorage.getItem('username');
                 let tempData = await getData(parms.id, setData);
                 if (!flag) {
-                    flag = tempData.followers.reduce((prev, curr) => prev || (curr.username === localStorage.getItem('username')), false);
+                    flag = tempData?.followers.reduce((prev, curr) => prev || (curr.username === localStorage.getItem('username')), false);
                     setIsFollowed(flag);
                 }
                 await getPost(parms.id, setMyPost);
@@ -51,6 +51,7 @@ const Profile = (props) => {
         e.preventDefault();
         if (data) {
             const host = process.env.REACT_APP_SERVER_HOST;
+            console.log(data);
             if (isFollowed) {
                 fetch(`${host}/user/unfollow/${data.username}`, {
                     method: 'PATCH',
@@ -58,7 +59,11 @@ const Profile = (props) => {
                         'Content-Type': 'application/json',
                         'authToken': localStorage.getItem('authToken')
                     }
-                }).catch((err) => { alert("", "Internal Server Error,Please Try Again Later!!!", "red") });
+                }).catch((err) => { console.error(err); alert("", "Internal Server Error,Please Try Again Later!!!", "red") });
+                setData((preData) => {
+                    preData.followers = preData.followers.filter(val => val !== localStorage.getItem('username'));
+                    return preData;
+                })
                 setIsFollowed(false);
             } else {
                 fetch(`${host}/user/follow/${data.username}`, {
@@ -68,6 +73,10 @@ const Profile = (props) => {
                         'authToken': localStorage.getItem('authToken')
                     }
                 }).catch((err) => { alert("", "Internal Server Error,Please Try Again Later!!!", "red") });
+                setData((preData) => {
+                    preData.followers.push(localStorage.getItem('username'));
+                    return preData;
+                })
                 setIsFollowed(true);
             }
         }

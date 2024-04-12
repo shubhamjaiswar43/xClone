@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const user = mongoose.Schema({
     username: {
         type: String,
@@ -11,10 +11,6 @@ const user = mongoose.Schema({
     password: {
         type: String,
         require: true
-    },
-    tweets: {
-        type: [String],
-        default: []
     },
     followers: {
         type: [Object],

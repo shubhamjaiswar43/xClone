@@ -3,6 +3,10 @@
     flex-grow: 1;
 }
 
+.text-center {
+    text-align: center;
+}
+
 
 @media only screen and (max-width:1200px) {
     .home-head-btn {
@@ -27,13 +31,13 @@
 
     .main-window {
         margin-top: 10px;
-        min-height: 100vh;
+        min-height: 90vh;
     }
 
     .navbar {
         position: fixed;
         bottom: 0;
-        left:0;
+        left: 0;
         right: 0;
         background-color: #fff;
         margin: auto;
@@ -57,10 +61,12 @@
     .main-window {
         margin: 10px;
     }
-    .home-head-btn{
-        width:52%;
+
+    .home-head-btn {
+        width: 52%;
         font-size: 1.4rem;
     }
+
     .tweet {
         margin: 10px 0;
     }
@@ -84,8 +90,10 @@
     }
 }
 
-@media only screen and (max-width:350px){
-    .user-info{
+@media only screen and (max-width:350px) {
+    .user-info {
         font-size: 1rem;
     }
+
+
 }

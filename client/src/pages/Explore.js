@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./css/Explore.css"
-import UserSection from './UserSection.js';
+import UserSection from '../components/UserSection.js';
 import myContext from '../context/myContext.js';
 import { useNavigate, useParams } from 'react-router-dom';
 const Explore = () => {
@@ -28,7 +28,7 @@ const Explore = () => {
                 <form onSubmit={handleSearch}>
                     <input value={username} onChange={(e) => { setUsername(e.target.value) }} className='input-search' type="text" placeholder='Search' />
                 </form>
-                <UserSection data={data} />
+                <UserSection path="/profile" data={data} />
             </div>
         </>
     )

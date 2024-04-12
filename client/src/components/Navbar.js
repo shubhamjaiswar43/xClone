@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import xClone from "./assets/xClone.jpg"
+import xClone from "../assets/xClone.jpg"
 import "./css/Navbar.css"
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import myContext from "../context/myContext.js";
@@ -43,7 +43,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link className={`not-implemented ${location === "/messages" ? "fw-bd" : ""}`} to="/messages">
+                        <Link className={`${location === "/messages" ? "fw-bd" : ""}`} to="/messages">
                             <i className="fa-regular fa-envelope"></i>
                             <p>Messages</p>
                         </Link>

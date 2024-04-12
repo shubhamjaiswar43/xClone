@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import UserSection from './UserSection.js'
+import UserSection from '../components/UserSection.js'
 import "./css/Follow.css";
 import { useNavigate, useParams } from 'react-router-dom';
 import myContext from '../context/myContext.js';

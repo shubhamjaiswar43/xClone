@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "./css/Home.css";
-import TweetSection from "./TweetSection.js";
+import TweetSection from "../components/TweetSection.js";
 import myContext from "../context/myContext.js";
 const Home = () => {
   const [homePage, setHomePage] = useState("all");
