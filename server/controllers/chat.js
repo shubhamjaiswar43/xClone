@@ -6,6 +6,12 @@ const getUsers = async (req, res) => {
     const users = [];
     const username = req.body.username;
     const rooms = await Message.find({ roomId: { $regex: username } });
+    rooms.sort((a, b) => {
+        if (a.messages.length === 0 || b.messages.length === 0) {
+            return b.messages.length - a.messages.length;
+        }
+        return (new Date(b.messages[b.messages.length - 1].time)).getTime() - (new Date(a.messages[a.messages.length - 1].time)).getTime();
+    })
     for (const room of rooms) {
         let ids = room.roomId.split(':');
         let id = ids[(ids[0] == username) ? 1 : 0];
