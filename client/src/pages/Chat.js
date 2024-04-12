@@ -63,7 +63,8 @@ const Chat = () => {
             setMessages(prevMessages => {
                 return [...prevMessages, data];
             })
-            setMessage('');
+            if (data.type === type)
+                setMessage('');
         })
     }
     useEffect(() => {
