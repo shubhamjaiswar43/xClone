@@ -1,8 +1,8 @@
 # X Clone
 ### • A MERN Web Application, crafting a Twitter clone from scratch.
-### • The application incorporates key features such as user authentication, the ability to follow/unfollow other users, posting tweets, and engaging with content through liking and unliking.
+### • The Application Incorporates key features such as User Authentication, the ability to follow/unfollow other users, posting tweets, engaging with content through liking and unliking and the users can explore the followers and followings of different accounts.
+### • Additionally, the application integrates Socket.io, enabling real-time chat functionality for users to engage in private conversations within the platform.
 ### • The entire user interface was designed and implemented with a responsive design using CSS, showcasing my proficiency in front-end development.
-### • Additionally, the application enables users to explore the followers and followings of different accounts, enhancing the overall user experience.
 #### LINK : [X Clone](https://xclonebyme.netlify.app)
 [NOTE : THE FIRST REQUEST TO THE SERVER WILL TAKE TIME(FOR STARTING THE SERVER). (i.e THE FIRST LOADING IN THE WEBSITE WILL TAKE AT MOST 1-2Minutes And Others Will Be Normal)]
 
@@ -25,6 +25,11 @@
 ![Screenshot (779)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/952c9033-f740-4a08-9c27-95d358fef586)
 
 ### Seeing Profile Of Different Users
-![Screenshot (780)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/961afa50-a108-43f8-939f-3216bce9a7a5)
+![Screenshot (971)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/4f29755c-28b0-4b7f-b8e9-bda6f15bcc62)
 
+### Messages Page
+![Screenshot (973)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/b1a92b73-abf0-4598-a340-bf924ac94b6e)
+
+### Chatting Page
+![Screenshot (972)](https://github.com/shubhamjaiswar43/xClone/assets/118053732/3a6710b0-4034-4022-86a7-c6655b2eb527)
 
